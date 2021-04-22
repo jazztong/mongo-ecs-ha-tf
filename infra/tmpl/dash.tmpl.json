@@ -1,0 +1,114 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [
+            "ECS/ContainerInsights",
+            "StorageWriteBytes",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "period": 300,
+        "stat": "Sum"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 18,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "ECS/ContainerInsights",
+            "NetworkRxBytes",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ],
+          [".", "NetworkTxBytes", ".", ".", ".", "."]
+        ],
+        "region": "${REGION}",
+        "period": 300
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "AWS/ECS",
+            "CPUUtilization",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ]
+        ],
+        "region": "${REGION}"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 6,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "AWS/ECS",
+            "MemoryUtilization",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ]
+        ],
+        "region": "${REGION}"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["AWS/EBS", "VolumeWriteOps", "VolumeId", "${VOLUME_ID}"],
+          [".", "VolumeReadOps", ".", "."]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "period": 300,
+        "stat": "Sum"
+      }
+    }
+  ]
+}
