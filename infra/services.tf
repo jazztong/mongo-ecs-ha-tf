@@ -7,6 +7,12 @@ resource "aws_ecs_service" "this" {
 
   desired_count = 1
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.this.arn
+    container_name   = var.app_id
+    container_port   = 27017
+  }
+
   network_configuration {
     subnets          = data.aws_subnet_ids.this.ids
     security_groups  = [aws_security_group.this.id]

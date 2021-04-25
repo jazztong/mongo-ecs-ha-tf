@@ -7,6 +7,7 @@ resource "aws_instance" "this" {
 
   monitoring    = true
   ebs_optimized = true
+
   root_block_device {
     volume_type = var.volume_type
     iops        = var.volume_iops
