@@ -13,9 +13,9 @@ module "mongo_arbiter" {
   desired_count = 1
   memory        = var.memory
   environment = [
-    { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-arbiter.ecs.load" },
+    { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-arbiter.ecs.demo" },
     { "name" : "MONGODB_REPLICA_SET_MODE", "value" : "arbiter" },
-    { "name" : "MONGODB_INITIAL_PRIMARY_HOST", "value" : "mongo-ecs-primary.ecs.load" },
+    { "name" : "MONGODB_INITIAL_PRIMARY_HOST", "value" : "mongo-ecs-primary.ecs.demo" },
     { "name" : "MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD", "value" : "mypassword" },
     { "name" : "MONGODB_REPLICA_SET_KEY", "value" : "replicasetkey123" }
   ]

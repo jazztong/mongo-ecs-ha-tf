@@ -14,7 +14,7 @@ module "mongo_primary" {
   memory        = var.memory
   environment = [
     { "name" : "MONGODB_ROOT_PASSWORD", "value" : "mypassword" },
-    { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-primary.ecs.load" },
+    { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-primary.ecs.demo" },
     { "name" : "MONGODB_REPLICA_SET_MODE", "value" : "primary" },
     { "name" : "MONGODB_REPLICA_SET_KEY", "value" : "replicasetkey123" }
   ]

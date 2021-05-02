@@ -9,7 +9,5 @@ ECS_INSTANCE_ATTRIBUTES={"mongo": "primary"}
 ECS_CONTAINER_STOP_TIMEOUT=2s
 ECS_IMAGE_PULL_BEHAVIOR=prefer-cached
 EOF
-#install the Docker volume plugin
-docker plugin install rexray/ebs REXRAY_PREEMPT=true EBS_REGION=${REGION} --grant-all-permissions
 # Report end
 echo 'Done Initialization'
