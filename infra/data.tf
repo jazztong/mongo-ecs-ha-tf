@@ -8,6 +8,14 @@ data "aws_subnet_ids" "this" {
 
 data "aws_region" "this" {}
 
+data "aws_availability_zones" "this" {
+  state = "available"
+}
+
+data "aws_subnet" "selected" {
+  id = tolist(data.aws_subnet_ids.this.ids)[0]
+}
+
 data "template_cloudinit_config" "userdata" {
   part {
     filename     = "init.sh"

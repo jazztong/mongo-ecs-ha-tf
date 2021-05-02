@@ -13,7 +13,7 @@ variable "app_id" {
 variable "volume_size" {
   description = "Volume size of root device"
   type        = number
-  default     = 50
+  default     = 30
 }
 
 variable "volume_iops" {
@@ -25,13 +25,13 @@ variable "volume_iops" {
 variable "volume_type" {
   description = "Volume type use in EC2,gp,io1,io2"
   type        = string
-  default     = "io1"
+  default     = "gp2"
 }
 
 variable "memory" {
   description = "Fargate Memory"
   type        = number
-  default     = 2048
+  default     = 512
 }
 
 variable "cpu" {
@@ -50,4 +50,9 @@ variable "instance_type" {
   description = "Instance type"
   type        = string
   default     = "m5.large"
+}
+
+variable "image" {
+  type    = string
+  default = "docker.io/bitnami/mongodb:4.4-debian-10"
 }

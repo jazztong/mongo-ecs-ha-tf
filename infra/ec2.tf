@@ -10,7 +10,6 @@ resource "aws_instance" "this" {
 
   root_block_device {
     volume_type = var.volume_type
-    iops        = var.volume_iops
     volume_size = var.volume_size
   }
 
@@ -18,4 +17,5 @@ resource "aws_instance" "this" {
   tags = {
     Name = "${var.app_id}-EC2-Provider"
   }
+
 }
