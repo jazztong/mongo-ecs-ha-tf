@@ -5,7 +5,7 @@ resource "aws_service_discovery_service" "this" {
     namespace_id = var.discovery_namespace_id
 
     dns_records {
-      ttl  = 86400
+      ttl  = 10
       type = "A"
     }
 

@@ -6,11 +6,11 @@ module "mongo_primary" {
   image         = var.image
   containerPort = 27017
 
-  create_lb     = true
-  lb_arn        = aws_lb.this.arn
+  create_lb     = var.nlb_enabled
+  lb_arn        = var.nlb_enabled ? aws_lb.this[0].arn : ""
   listener_port = 27017
 
-  desired_count = 1
+  desired_count = var.primary_enabled ? 1 : 0
   memory        = var.memory
   environment = [
     { "name" : "MONGODB_ROOT_PASSWORD", "value" : "mypassword" },
@@ -30,7 +30,7 @@ module "mongo_primary" {
   ]
   mountPoints = [
     {
-      "containerPath" : "/bitnami",
+      "containerPath" : "/bitnami/mongodb",
       "sourceVolume" : "primary-data"
     }
   ]

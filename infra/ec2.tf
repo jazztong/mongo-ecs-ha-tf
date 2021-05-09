@@ -1,5 +1,5 @@
 resource "aws_instance" "this" {
-  ami                    = data.aws_ami.amzlinux2.id
+  ami                    = var.restore_ami == null ? data.aws_ami.amzlinux2.id : var.restore_ami
   iam_instance_profile   = aws_iam_instance_profile.this.name
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.this.id]

@@ -56,3 +56,33 @@ variable "image" {
   type    = string
   default = "docker.io/bitnami/mongodb:4.4-debian-10"
 }
+
+variable "restore_ami" {
+  description = "AMI to restore the EC2"
+  type        = string
+  default     = "ami-0ec4a237a9e2ad85e"
+}
+
+variable "nlb_enabled" {
+  description = "Enable NLB"
+  type        = bool
+  default     = false
+}
+
+variable "primary_enabled" {
+  description = "Enable primary node, min setup"
+  type        = bool
+  default     = true
+}
+
+variable "secondary_enabled" {
+  description = "Enable secondary node for replica setup"
+  type        = bool
+  default     = true
+}
+
+variable "arbiter_enabled" {
+  description = "Enable arbiter setup for replica"
+  type        = bool
+  default     = true
+}

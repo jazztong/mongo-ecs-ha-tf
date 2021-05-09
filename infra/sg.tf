@@ -3,19 +3,12 @@ resource "aws_security_group" "this" {
   description = "Security group to allow access to Mongo"
   vpc_id      = data.aws_vpc.this.id
 
-  ingress {
-    from_port   = 27017
-    to_port     = 27017
-    protocol    = "tcp"
-    cidr_blocks = var.ingress_cidr_blocks
-  }
-
-  ingress {
-    from_port   = -1
-    to_port     = -1
-    protocol    = "icmp"
-    cidr_blocks = var.ingress_cidr_blocks
-  }
+  # ingress {
+  #   from_port   = 27017
+  #   to_port     = 27017
+  #   protocol    = "tcp"
+  #   cidr_blocks = var.ingress_cidr_blocks
+  # }
 
   ingress {
     from_port = 0

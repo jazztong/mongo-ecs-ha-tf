@@ -9,5 +9,13 @@ ECS_INSTANCE_ATTRIBUTES={"mongo": "primary"}
 ECS_CONTAINER_STOP_TIMEOUT=2s
 ECS_IMAGE_PULL_BEHAVIOR=prefer-cached
 EOF
+# Enable password authentication
+sed 's/PasswordAuthentication no/PasswordAuthentication yes/' -i /etc/ssh/sshd_config
+systemctl restart sshd
+service sshd restart
+
+useradd ecs-user
+usermod -aG wheel ecs-user
+echo "mypassword" | passwd --stdin ecs-user
 # Report end
 echo 'Done Initialization'

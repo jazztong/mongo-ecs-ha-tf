@@ -6,11 +6,11 @@ module "mongo_secondary" {
   image         = var.image
   containerPort = 27017
 
-  create_lb     = true
-  lb_arn        = aws_lb.this.arn
+  create_lb     = var.nlb_enabled
+  lb_arn        = var.nlb_enabled ? aws_lb.this[0].arn : ""
   listener_port = 27018
 
-  desired_count = 1
+  desired_count = var.secondary_enabled ? 1 : 0
   memory        = var.memory
   environment = [
     { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-secondary.ecs.demo" },
