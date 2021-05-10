@@ -60,7 +60,7 @@ variable "image" {
 variable "restore_ami" {
   description = "AMI to restore the EC2"
   type        = string
-  default     = "ami-0ec4a237a9e2ad85e"
+  default     = null
 }
 
 variable "nlb_enabled" {

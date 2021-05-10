@@ -11,13 +11,13 @@ resource "aws_ecs_task_definition" "this" {
     for_each = var.volumes == null ? [] : var.volumes
     content {
       name      = volume.value.name
-      host_path = lookup(volume.value, "host_path", null)
+      host_path = try(volume.value.host_path, null)
       dynamic "docker_volume_configuration" {
-        for_each = lookup(volume.value, "docker_volume_configuration", null) == null ? [] : [lookup(volume.value, "docker_volume_configuration", null)]
+        for_each = can(volume.value.docker_volume_configuration) ? [try(volume.value.docker_volume_configuration, {})] : []
         content {
-          scope         = lookup(docker_volume_configuration.value, "scope", null)
-          autoprovision = lookup(docker_volume_configuration.value, "autoprovision", null)
-          driver        = lookup(docker_volume_configuration.value, "driver", null)
+          scope         = try(docker_volume_configuration.value.scope, null)
+          autoprovision = try(docker_volume_configuration.value.autoprovision, null)
+          driver        = try(docker_volume_configuration.value.driver, null)
         }
       }
     }
@@ -33,8 +33,6 @@ resource "aws_ecs_task_definition" "this" {
       "environment" : var.environment,
       "mountPoints" : var.mountPoints,
       "placementConstraints" : var.placementConstraints,
-      "command" : var.command,
-      "healthCheck" : var.healthCheck,
       "volumes" : var.volumes,
       "logConfiguration" : {
         "logDriver" : "awslogs",

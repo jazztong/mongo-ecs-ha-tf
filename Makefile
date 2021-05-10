@@ -20,11 +20,14 @@ tunnel:
 	-L 27017:mongo-ecs-primary.ecs.demo:27017 \
 	-L 27018:mongo-ecs-secondary.ecs.demo:27017
 
-ssh:
-	ssh ecs-user@${ec2_id}
+# ssh:
+# 	ssh ecs-user@${ec2_id}
 
-ssm:
-	aws ssm start-session --target ${ec2_id}
+# docker:
+# 	docker run -d -p 27017:27017 -v primary-data:/bitnami/mongodb docker.io/bitnami/mongodb:4.4-debian-10
 
-docker:
-	docker run -d -p 27017:27017 -v primary-data:/bitnami docker.io/bitnami/mongodb:4.4-debian-10
+#reset-replica:
+# rs.initiate( {
+#    _id : 'replicaset',
+#    members: [ { _id : 0, host : 'mongo-ecs-primary.ecs.demo:27017' } ]
+# })

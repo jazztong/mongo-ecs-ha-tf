@@ -21,12 +21,6 @@ variable "memory" {}
 variable "desired_count" {
   default = 1
 }
-variable "healthCheck" {
-  default = null
-}
-variable "command" {
-  default = null
-}
 variable "create_lb" {
   default = false
 }
