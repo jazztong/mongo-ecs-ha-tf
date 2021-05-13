@@ -8,10 +8,6 @@ data "aws_subnet_ids" "this" {
 
 data "aws_region" "this" {}
 
-data "aws_availability_zones" "this" {
-  state = "available"
-}
-
 data "aws_subnet" "selected" {
   id = tolist(data.aws_subnet_ids.this.ids)[0]
 }
@@ -38,14 +34,4 @@ data "aws_ami" "amzlinux2" {
   }
 
   owners = ["amazon"]
-}
-
-
-data "aws_ebs_volume" "this" {
-  most_recent = true
-
-  filter {
-    name   = "attachment.instance-id"
-    values = [aws_instance.this.id]
-  }
 }

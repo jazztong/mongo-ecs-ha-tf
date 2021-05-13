@@ -66,7 +66,7 @@ variable "restore_ami" {
 variable "nlb_enabled" {
   description = "Enable NLB"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "primary_enabled" {

@@ -20,25 +20,7 @@ resource "aws_iam_role_policy" "this" {
     {
       "Effect": "Allow",
       "Action": [
-          "ssm:GetParameter",
-          "ec2:AttachVolume",
-          "ec2:CreateVolume",
-          "ec2:CreateSnapshot",
-          "ec2:CreateTags",
-          "ec2:DeleteVolume",
-          "ec2:DeleteSnapshot",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeInstances",
-          "ec2:DescribeVolumes",
-          "ec2:DescribeVolumeAttribute",
-          "ec2:DescribeVolumeStatus",
-          "ec2:DescribeSnapshots",
-          "ec2:CopySnapshot",
-          "ec2:DescribeSnapshotAttribute",
-          "ec2:DetachVolume",
-          "ec2:ModifySnapshotAttribute",
-          "ec2:ModifyVolumeAttribute",
-          "ec2:DescribeTags"
+          "ssm:GetParameter"
       ],
       "Resource": "*"
     }

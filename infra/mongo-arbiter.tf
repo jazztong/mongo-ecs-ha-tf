@@ -6,10 +6,6 @@ module "mongo_arbiter" {
   image         = var.image
   containerPort = 27017
 
-  create_lb     = var.nlb_enabled
-  lb_arn        = var.nlb_enabled ? aws_lb.this[0].arn : ""
-  listener_port = 27019
-
   desired_count = var.arbiter_enabled ? 1 : 0
   memory        = var.memory
   environment = [
