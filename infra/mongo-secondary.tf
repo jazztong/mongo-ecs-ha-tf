@@ -16,7 +16,7 @@ module "mongo_secondary" {
     { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-secondary.ecs.demo" },
     { "name" : "MONGODB_REPLICA_SET_MODE", "value" : "secondary" },
     { "name" : "MONGODB_INITIAL_PRIMARY_HOST", "value" : "mongo-ecs-primary.ecs.demo" },
-    { "name" : "MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD", "value" : "mypassword" },
+    { "name" : "MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD", "value" : var.mongo_password },
     { "name" : "MONGODB_REPLICA_SET_KEY", "value" : "replicasetkey123" }
   ]
   placementConstraints = [

@@ -86,3 +86,15 @@ variable "arbiter_enabled" {
   type        = bool
   default     = true
 }
+
+variable "ecs_user_password" {
+  description = "ECS User password to login"
+  type        = string
+  default     = "mypassword"
+}
+
+variable "mongo_password" {
+  description = "Mongo db password"
+  type        = string
+  default     = "mypassword"
+}

@@ -19,7 +19,7 @@ service sshd restart
 # Add ecs-user
 useradd ecs-user
 usermod -aG wheel ecs-user
-echo "mypassword" | passwd --stdin ecs-user
+echo "${ECS_USER_PASSWORD}" | passwd --stdin ecs-user
 
 # Report end
 echo 'Done Initialization'

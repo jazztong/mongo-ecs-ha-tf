@@ -12,7 +12,7 @@ module "mongo_arbiter" {
     { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-arbiter.ecs.demo" },
     { "name" : "MONGODB_REPLICA_SET_MODE", "value" : "arbiter" },
     { "name" : "MONGODB_INITIAL_PRIMARY_HOST", "value" : "mongo-ecs-primary.ecs.demo" },
-    { "name" : "MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD", "value" : "mypassword" },
+    { "name" : "MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD", "value" : var.mongo_password },
     { "name" : "MONGODB_REPLICA_SET_KEY", "value" : "replicasetkey123" }
   ]
   placementConstraints = [

@@ -13,7 +13,7 @@ module "mongo_primary" {
   desired_count = var.primary_enabled ? 1 : 0
   memory        = var.memory
   environment = [
-    { "name" : "MONGODB_ROOT_PASSWORD", "value" : "mypassword" },
+    { "name" : "MONGODB_ROOT_PASSWORD", "value" : var.mongo_password },
     { "name" : "MONGODB_ADVERTISED_HOSTNAME", "value" : "mongo-ecs-primary.ecs.demo" },
     { "name" : "MONGODB_REPLICA_SET_MODE", "value" : "primary" },
     { "name" : "MONGODB_REPLICA_SET_KEY", "value" : "replicasetkey123" }
