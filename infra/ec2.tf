@@ -17,5 +17,4 @@ resource "aws_instance" "this" {
   tags = {
     Name = "${var.app_id}-EC2-Provider"
   }
-
 }
